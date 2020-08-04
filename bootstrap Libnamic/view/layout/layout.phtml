@@ -1,0 +1,260 @@
+<?php
+$escape = $this->plugin('escapeHtml');
+$siteTitle = $site->title();
+$this->htmlElement('html')->setAttribute('lang', $this->lang());
+$this->headMeta()->setCharset('utf-8');
+$this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
+$this->headTitle($siteTitle)->setSeparator(' · ');
+$this->headTitle()->append($this->setting('installation_title', 'Omeka S'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/style.css'));
+$this->headLink()->prependStylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+$this->headScript()->prependFile('https://code.jquery.com/jquery-3.3.1.slim.min.js');
+
+$this->headLink()->prependStylesheet('//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700italic,700');
+$this->headLink()->prependStylesheet('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+// https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+$this->headScript()->prependFile($this->assetUrl('js/default.js'));
+$this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
+
+$this->trigger('view.layout');
+$userBar = $this->userBar();
+?>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<?php echo $this->doctype(); ?>
+<?php echo $this->htmlElement('html'); ?>
+
+<head>
+  <?php echo $this->headMeta(); ?>
+  <?php echo $this->headTitle(); ?>
+  <?php echo $this->headLink(); ?>
+  <?php echo $this->headStyle(); ?>
+  <?php echo $this->headScript(); ?>
+
+  <!-- <style>
+            <?php if ($accentColor = $this->themeSetting('accent_color')) : ?>
+            a:link,
+            a:visited {
+                color: <?php echo $accentColor; ?>
+            }
+            
+            a:active,
+            a:hover {
+                color: <?php echo $accentColor; ?>;
+                opacity: .75;
+            }
+            <?php endif; ?>
+        </style> -->
+</head>
+</div>
+
+<body class="mt-auto col-10 m-auto">
+  <?php echo $userBar; ?>
+  <!-- <nav> <p>Soy un navBar</p></nav> -->
+  <header>
+    <h1>
+      <a href="<?php echo $site->url(); ?>" class=" text-success display-5 text-center">
+        <?php if ($this->themeSetting('logo')) : ?>
+          <img src="<?php echo $this->themeSettingAssetUrl('logo'); ?>" alt="<?php echo $escape($siteTitle); ?>" />
+        <?php else : ?>
+          <?php echo $escape($siteTitle); ?>
+        <?php endif; ?>
+      </a>
+    </h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info col-12 ">
+      <!-- <a class="navbar-brand" href="#">Omeka Libnamic</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item active">
+            <a class="nav-link font-weight-bold text-white" href="/s/prueba-de-nuevo-tema/page/inicio">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  font-weight-bold text-white" href="/s/prueba-de-nuevo-tema/page/quienes-somos">Quiénes somos</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold text-white" href="/s/prueba-de-nuevo-tema/item-set">Conjunto de Items</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold text-white" href="/s/prueba-de-nuevo-tema/page/contacto">Contacto</a>
+          </li>
+        </ul>
+
+        <?php echo $this->partial('common/search-form'); ?>
+
+      </div>
+    </nav>
+
+
+
+  </header>
+
+
+  <div class="col-12">
+    <div id="carousel-example-2" class="carousel slide carousel-fade mt-5" data-ride="carousel">
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+      </ol>
+      <!--/.Indicators-->
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="view">
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
+            <div class="mask rgba-black-light"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Light mask</h3>
+            <p>First text</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
+            <div class="mask rgba-black-strong"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Strong mask</h3>
+            <p>Secondary text</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
+            <div class="mask rgba-black-slight"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Slight mask</h3>
+            <p>Third text</p>
+          </div>
+        </div>
+      </div>
+      <!--/.Slides-->
+      <!--Controls-->
+      <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <!--/.Controls-->
+    </div>
+    <!--/.Carousel Wrapper-->
+
+
+
+    <div class="m-5 lead small text-justify" id="content" role="main">
+      <?php echo $this->content; ?>
+    </div>
+  </div>
+
+  <hr class="clearfix w-100 mt-5 pb-3">
+  </div>
+
+  <!-- Footer -->
+
+  <footer class="page-footer font-small blue pt-4 m-5">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h5 class="text">Exposición Digital de Libnamic</h5>
+          <?php if ($footerContent = $this->themeSetting('footer')) : ?>
+            <?php echo $footerContent; ?>
+          <?php else : ?>
+            <?php echo $this->translate('Desarrollado by Libnamic'); ?>
+          <?php endif; ?>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+          <!-- Links -->
+          <h5 class="text">Links</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">El descubrimiento de América </a>
+            </li>
+            <li>
+              <a href="#!"> 100 años de super Mario</a>
+            </li>
+            <li>
+              <a href="#!">Historia reciente de España</a>
+            </li>
+            <li>
+              <a href="#!">Más... </a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+          <!-- Links -->
+          <h5 class="text">Sobre Libnamic</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Quienes somos</a>
+            </li>
+            <li>
+              <a href="#!">Colaborar con la Exposición</a>
+            </li>
+            <li>
+              <a href="#!">Contacto</a>
+            </li>
+            <li>
+              <a href="#!">Directorio útiles</a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+      </div>
+    </div>
+    <!-- Grid row -->
+
+
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://omeka.libnamic.com/"> Libnamic.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+</body>
+
+</html>

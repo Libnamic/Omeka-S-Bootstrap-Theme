@@ -1,0 +1,128 @@
+/*! General */
+a:focus, a:hover {
+	text-decoration: none;
+}
+/*! Font */
+@import url(http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700,400italic,700italic);
+body {
+	font-family: "Archivo Narrow", sans-serif;
+}
+
+/*! Navbar */
+header .navbar-brand img {
+  height: 20px;
+} 
+
+/*! Sticky footer */
+html {
+  position: relative;
+  min-height: 100%;
+  margin: 0 auto;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 51px;
+  margin: 0 auto;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 51px;
+}
+.footer .navbar-brand {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.footer .navbar-brand img {
+  height: 30px;
+} 
+
+/*! homepage */
+body#home {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url('../images/background4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 51px;
+}
+#home form.navbar-form {
+  display: none;
+}
+#home footer {
+  display: none;
+}
+#home .jumbotron {
+  background-color: transparent;
+  color: #fff;
+}
+
+/*! browse-gallery */
+.item-thumb {
+	margin-bottom: 30px;
+}
+.item-thumb .thumbnail {
+	position: relative;
+}
+.item-thumb .thumbnail .result-type {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+}
+.item-thumb .caption h5 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/*! item-show */
+.addthis_sharing_toolbox {
+	margin-bottom: 20px;
+}
+/*! exhibition-show */
+.navbar-static-bottom {
+	z-index: 1000;
+    border-width: 1px 0 0;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+#viewer {
+	background-color: #f8f8f8;
+}
+#viewer .caption {
+	padding: 0 20px 10px;
+}
+#viewer .nav-tabs {
+	border: none;
+	padding: 0 20px 20px;
+}
+#viewer .nav-tabs>li {
+	width: 10%;
+}
+#viewer .nav-tabs>li>a {
+	border-radius: 4px;
+	padding: 5px;
+}
+#viewer .nav-tabs>li>a:hover {
+	border-color: #ddd;
+}
+#viewer .nav-tabs>li.active>a, #viewer .nav-tabs>li.active>a:focus, #viewer .nav-tabs>li.active>a:hover {
+	border-bottom-color: #ddd;
+}
+#viewer .nav-tabs>li img {
+	width: 100%;
+}
+/* personal */
+.header {
+  color: #36A0FF;
+  font-size: 27px;
+  padding: 10px;
+}
+
+.bigicon {
+  font-size: 35px;
+  color: #36A0FF;
+}

@@ -1,0 +1,29 @@
+// Susy
+$susy: ( columns: 12, container: 1700px, global-box-sizing: border-box);
+// Colors
+$gray: #ffffff;
+$bold: darken($gray, 20%);
+$light: lighten($gray, 20%);
+$bg: lighten($gray, 30%);
+$link: #5e5e5e;
+$elementoNav: white;
+$margin-top: 70px;
+$tamañoMedia:300px;
+// Typography
+$base-font-size: 20px;
+$base-line-height: 30px;
+// Units
+$spacing-s: .25 * $base-line-height;
+$spacing-m: .5 * $base-line-height;
+$spacing-l: $base-line-height;
+// Mixins
+@mixin container {
+    max-width: 1700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+//background colors
+$background:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cfe3c036-01ae-435f-8cc7-a4080bc50915/d14399q-bc8604b1-5fbd-4844-861a-68db37e7b850.jpg/v1/fill/w_600,h_800,q_75,strp/spiritsighstexture04_by_spiritsighs_stock_d14399q-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD04MDAiLCJwYXRoIjoiXC9mXC9jZmUzYzAzNi0wMWFlLTQzNWYtOGNjNy1hNDA4MGJjNTA5MTVcL2QxNDM5OXEtYmM4NjA0YjEtNWZiZC00ODQ0LTg2MWEtNjhkYjM3ZTdiODUwLmpwZyIsIndpZHRoIjoiPD02MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.8_ml2jcfvvlZeL_8ZEAhFyTXed4MD9TxlE4SmDU3ZM8);
+$fondoCabecera: url(https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717_960_720.jpg);
+$baseMenu:grey;

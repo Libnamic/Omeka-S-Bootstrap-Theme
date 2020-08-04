@@ -1,0 +1,250 @@
+/* @group ----- Header ----- */
+
+header {
+    text-align: center;
+}
+
+header nav {
+    position: relative;
+    margin: $spacing-m 0 (-$spacing-m);
+    padding: 0;
+    background-color: #2175bc;
+    width: 100%;
+}
+
+header nav.closed ul {
+    height: 0;
+    overflow: hidden;
+    margin-top: $margin-top;
+}
+
+header nav:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f0c9";
+    display: block;
+    width: 37.5px;
+    height: 37.5px;
+    border: 1px solid #dedede;
+    text-align: center;
+    border-radius: 2px;
+    position: absolute;
+    right: 1.69492%;
+    top: -52.5px;
+    cursor: pointer;
+    line-height: 37.5px
+}
+
+header nav.open:before {
+    content: "\f00d";
+}
+
+header nav ul {
+    padding-left: 0;
+    list-style: none;
+    position: relative;
+    margin: 0 auto;
+    a {
+        display: inline-block;
+        width: 100%;
+        padding: $spacing-s;
+    }
+    a:hover {
+        border-bottom: 0;
+        background-color: $baseMenu;
+    }
+    li {
+        border-top: 1px solid $light;
+        position: relative;
+    }
+    li li:last-of-type {
+        padding-bottom: 0;
+    }
+    li.active {
+        font-weight: bold;
+    }
+    li>ul:before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f105";
+        position: absolute;
+        right: 0;
+        border: solid 2px red;
+        top: -(1.5 * $spacing-l);
+        color: $light;
+        width: $spacing-l;
+        height: 1.5 * $spacing-l;
+        line-height: 1.5 * $base-line-height;
+        text-align: center;
+    }
+    li>ul:hover:before {
+        content: "\f107";
+    }
+    a:hover~ul:before {
+        color: $gray;
+    }
+}
+
+header nav>ul>li:last-child {
+    border-bottom: 1px solid $light;
+    padding-bottom: -1px;
+}
+
+header nav>ul ul li {
+    height: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+header nav>ul ul:hover>li {
+    height: auto;
+    border-top: 1px solid $light;
+    padding-top: -1px;
+}
+
+
+/* Second level items */
+
+header nav>ul>li>ul>li.active>a {
+    margin-left: -1.5em;
+}
+
+header nav>ul>li>ul>li.active>a:before {
+    content: ">";
+    display: inline-block;
+    width: 1.5em;
+}
+
+header nav>ul>li>ul>li a {
+    padding-left: $spacing-l;
+}
+
+
+/* Third level items */
+
+header nav>ul>li>ul>li>ul>li a {
+    padding-left: 2 * $spacing-l;
+}
+
+.sub-menu ul {
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: $spacing-m;
+}
+
+.sub-menu li {
+    font-size: .75 * $base-font-size;
+    font-weight: bold;
+    border-bottom: 1px solid $light;
+    padding: $spacing-s 0 ($spacing-s - 1px);
+    &:first-of-type {
+        border-top: 1px solid $light;
+        padding-top: ($spacing-s - 1px);
+    }
+}
+
+nav.pagination {
+    margin-bottom: $spacing-l;
+    font-size: $base-font-size;
+    line-height: 1.5 * $base-line-height;
+}
+
+//title
+
+/* @group ----- Header ----- */
+
+.site-title {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    /* padding-right: 30px; */
+    border-bottom: 1px solid #666666;
+    background-image: $fondoCabecera;
+}
+
+.site-title h1 {
+    font-size: 1.25 * $base-font-size;
+    line-height: $base-line-height;
+    padding-right: $base-line-height;
+}
+
+.site-title a {
+    color: white;
+}
+
+.navigation li a {
+    color: $elementoNav;
+}
+
+header {
+    // background-color: #fff;
+    margin: 0 0 (2.5 * $spacing-l);
+    padding-top: $spacing-m;
+    border-bottom: 1px solid $light;
+    padding-bottom: ($spacing-m - 1px);
+    position: relative;
+    &>* {
+        @include container;
+        padding: 0 gutter();
+        display: block;
+    }
+}
+
+.site-title:hover,
+.site-title:active {
+    border-bottom: 0;
+}
+
+.site-title h1 {
+    margin: 0;
+}
+
+//buscador
+button.o-icon-search {
+    display: none;
+}
+
+#search {
+    position: absolute;
+    top: 100%;
+    width: 30x;
+    left: 0;
+    right: 0;
+    // background-color: #fff;
+    border-bottom: 1px solid $light;
+    border-top: 1px solid $light;
+    padding: $spacing-s gutter();
+}
+
+#search form {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#search form input[type="text"] {
+    width: 30%;
+}
+
+#search form button[type="submit"] {
+    height: 1.5 * $base-line-height;
+    width: 1.5 * $base-line-height;
+    text-indent: -9999px;
+    position: relative;
+    border-radius: 0 3px 3px 0;
+    &:before {
+        content: "\f002";
+        font-family: "Font Awesome 5 Free";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        text-indent: 0;
+        line-height: 1.5 * $base-line-height;
+    }
+}
+
+
+/* @end */

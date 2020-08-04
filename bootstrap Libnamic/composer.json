@@ -1,0 +1,7 @@
+{
+    "name": "omeka-s-themes/libnamic",
+    "type": "omeka-s-theme",
+    "require": {
+        "omeka/omeka-s": "*"
+    }
+}

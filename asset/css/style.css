@@ -126,3 +126,22 @@ body#home {
   font-size: 35px;
   color: #36A0FF;
 }
+
+
+.resource-list.img-fluid {
+	min-height: 16em;
+	object-fit: cover;
+}
+.slider-img{
+  max-height: 25em!important;
+  object-fit: cover;
+}
+#navbarSupportedContent .navigation{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    margin: 1em;
+  
+}

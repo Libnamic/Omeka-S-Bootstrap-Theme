@@ -1,0 +1,85 @@
+<?php
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+$this->htmlElement('body')->appendAttribute('class', 'item resource browse');
+$query = $this->params()->fromQuery();
+$itemSetShow = isset($itemSet);
+
+//internal variables
+$pageItem = false;
+$pageTitle = false;
+$filtroBusqueda = true;
+$showModalSearch = $this->themeSetting('modal_search', true);
+$pictureDefault = $this->themeSettingAssetUrl('picture_default')??'';
+$pagination = true;
+
+?>
+<?php $this->trigger('view.browse.before'); ?>
+
+<?= $itemSetShow != null ?  $this->pageTitle($itemSet->displayTitle(), 2) : ''; ?>
+
+
+
+<div class="itemBrowse1_introduction">
+
+    <div class="ItemBrowse1_presentation">
+
+        <?php if ($itemSetShow) : ?>
+
+
+
+            <?php $this->pageTitle($itemSet->displayTitle(), 2);
+
+
+            // echo $itemSet->value('dcterms:abstract');
+
+
+            ?>
+        <?php else : ?>
+
+
+        <?php endif; ?>
+    </div>
+    <div id="thumbnailItemBrowse1">
+        <?php if ($itemSet != null && $this->thumbnail($itemSet, 'medium') != null) : ?>
+
+            <?= $this->thumbnail($itemSet, 'medium') ?>
+
+        <?php else : ?>
+            <!-- <?= $pictureDefault != null ? '<img  class="card-img-top" src="' . $pictureDefault . '">' : '' ?> -->
+
+        <?php endif; ?>
+    </div>
+</div>
+
+<div class="row">
+        <?php
+        $headingTerm = $this->siteSetting('browse_heading_property_term');
+        $bodyTerm = $this->siteSetting('browse_body_property_term');
+        foreach ($items as $item) :
+            $heading = $headingTerm ? $item->value($headingTerm, ['default' => $translate('[Untitled]')]) : $item->displayTitle();
+            $body = $bodyTerm ? $item->value($bodyTerm) : $item->displayDescription();
+            ?>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="card" style="width: 18rem;">
+                <?php if ($itemThumbnail = $this->thumbnail($item, 'medium')) : ?>
+                    <?= $itemThumbnail ?>
+                <?php else : ?>
+                    <img class="card-img-top" src="<?= $pictureDefault; ?>" alt="Card image cap">
+                <?php endif; ?>
+                <div class="card-body">
+                    <h5 class="card-title"><?= $item->title() ?></h5>
+                    <p class="card-text"><?= $item->displayDescription() ? $item->displayDescription() : '' ?></p>
+                    <a href="<?= $item->url() ?>" class="btn btn-primary">Ver item</a>
+                </div>
+            </div>
+    </div>
+
+        <?php endforeach; ?>
+</div>
+
+
+<?php echo ($itemSetShow) ? '</div>' : ''; ?>
+<?php $this->trigger('view.browse.after'); ?>
+<?= $pagination ? $this->pagination() : ''; ?>

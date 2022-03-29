@@ -14,18 +14,9 @@ $this->htmlElement('body')->appendAttribute('class', 'item-set resource browse m
     <?php echo $this->hyperlink($translate('Advanced search'), $this->url(null, ['action' => 'search'], true), ['class' => 'advanced-search']); ?>
 </div>
 
-<?php $this->trigger('view.browse.before'); ?> <table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Thumbnail</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-
-
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="resource-list m-5">
+<div class="row">
+<?php $this->trigger('view.browse.before'); ?> 
+    
             <?php
             $headingTerm = $this->siteSetting('browse_heading_property_term');
             $bodyTerm = $this->siteSetting('browse_body_property_term');
@@ -37,25 +28,27 @@ $this->htmlElement('body')->appendAttribute('class', 'item-set resource browse m
         
             $thumbnail = $itemSet->thumbnail();
             ?>
-        <tr class="item-set resource">
-            <td class="col-3">
-            <img class="resource-list img-fluid" width="400px" src="<?= ($thumbnail->assetUrl()) ?>">
-            </td>
-
-            <td class="col-3"><?php echo $itemSet->link($heading); ?></td>
-            <?php if ($body) : ?>
-                <td class="description"><?php echo $body; ?></td>
-            <?php endif; ?>
-            </td>
-            <td class="col-3"><?php echo $itemSet->link($heading); ?></td>
-            <?php if ($body) : ?>
-                <td class="description"><?php echo $body; ?></td>
-            <?php endif; ?>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
-    </table>
+         <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="card" style="width: 18rem;">
     
+            <a href="<?=$itemSet->url()?>">
+            <img class="resource-list img-fluid" width="400px" src="<?= ($thumbnail->assetUrl()) ?>">
+            </a>
+            <div class="card-body">
+       
+            <?php if ($heading) : ?>
+                <h5 class="card-title">
+               <?php echo $itemSet->link($heading); ?>
+               </h5>
+            <?php endif; ?>
+        <?php echo $body; ?>
+        
+            
+            </div>
+      </div>
+      </div>
+    <?php endforeach; ?>
+   
+    </div>
     <?php $this->trigger('view.browse.after'); ?>
     <?php echo $this->pagination(); ?>
